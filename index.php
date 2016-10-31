@@ -3,6 +3,8 @@ $page = "index";
   require_once 'inc/header.php';
   is_authenticated();
   $rank = check_rank($_SESSION['auth']->id_rank);
+  $id = $_SESSION['auth']->id;
+  $directory = $pdo->query("SELECT id FROM directory WHERE id_user = $id");
 ?>
 
   <div class="container">
@@ -47,6 +49,16 @@ $page = "index";
       <div id="loader-icon" style="display:none;"><img src="LoaderIcon.gif" /></div>
 
       <p>Vos fichiers:</p>
+       <!-- Liste des fichiers --><tr>
+        <?php while($dir = $directory->fetch()){
+        $files = read_directory('admin/directory/' .$dir->id);
+          foreach ($files as $fichiers) {
+          if($fichiers != "." && $fichiers != ".."){
+           echo '<td>'.$fichiers.'<br>';
+          }
+        }
+      }
+        ?>
     </div><!-- /jumbotron -->
 
   </div><!-- /container -->

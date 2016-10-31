@@ -151,4 +151,19 @@ function remove_directory($name){
   }
 }
 
+// Récuperer le contenu d'un répertoire
+ function read_directory($name){
+  $id = trim($name, "'");
+  if(!file_exists($name)){
+    $_SESSION['flash']['danger'] = "Impossible de localiser le dossier, le dossier n'existe pas";
+  }
+  else{
+    $files = scandir($name);
+     while(false !== ($entry = $files)){
+         return $files;
+        }
+     }
+  }
+
+
 ?>
