@@ -165,5 +165,13 @@ function remove_directory($name){
      }
   }
 
-
+ function upload($target_dir, $upfile, $temp){
+  $target_file = $target_dir . $upfile;
+  $uploadOk = 1;
+    if (move_uploaded_file($temp , $target_file)) {
+        echo "The file ". basename( $_FILES["upfile"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+}
 ?>

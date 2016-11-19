@@ -22,7 +22,12 @@
 
     <!-- Bootstrap core CSS -->
     <link href="asset/css/bootstrap.css" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="asset/css/custom.css">
+    <style>
+     body,table {
+      font-size: 15px;
+     }
+    </style>
   </head>
   <body>
 
